@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title%} Авторизация {% endblock %}
+
+{% block content %}
+    <div class="features">
+		<h1>Авторизация</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Логин" class="form-control"><br>
+			<input type="password" name="password" placeholder="Пароль" class="form-control" ><br>
+			{% if request.GET.next %}
+  				<input type="hidden" name="next" value="{{request.GET.next}}" />
+			{% endif %}
+			<input class="btn btn-warning" type="submit" value="Войти"><br>
+
+        </form>
+
+		{% for message in messages %}
+			<p id="messages">{{message}}</p>
+		{% endfor %}
+
+		<div class="d-flex justify-content-center links">
+			Нет аккаунта?   <a href="{% url 'register' %}" class="ml-2">Регистрация</a>
+		</div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title%} {{ article.title }} {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ article.title }}</h1>
+        <p>Город: {{ article.city }}</p>
+        <p>Описание: {{ article.desc }}</p>
+        <p>Цена: {{ article.price }}</p>
+        <p>Теги: {{ article.tags }}</p>
+
+
+    </div>
+{% endblock %}
